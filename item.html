@@ -24,6 +24,7 @@
     <a href="./search.html">Search</a>
     <a href="./index.html#browse">Browse</a>
     <a href="./about.html">About</a>
+    <a href="./map.html">Map</a>
   </nav>
   <div class="alert" role="alert" hidden>Your browser does not support ServiceWorker. The app will not be available offline.</div>
   <main class="item">
@@ -32,9 +33,7 @@
   <footer>
     <p>© Copyright Montana State University (MSU) Library</p>
     <p>
-      Created by
-      <a href="https://twitter.com/jaclark">@jaclark</a>, the source code is available on
-      <a href="https://github.com/jasonclark">GitHub</a>.
+      Created by Jason Clark & Peyton Ellis.
     </p>
   </footer>
   <script src="./app.js"></script>
@@ -76,12 +75,15 @@
               <h2>Item: ${data[i].item.titleInfo_title}</h2>
               <ul>
               <li>
-                <img alt="${data[i].item.titleInfo_title}" src="${data[i].item.identifier}" />
-                <p>${data[i].item.titleInfo_title}</p>
-                <p>${data[i].item.abstract}</p>
-                <p>${data[i].item.extension}</p>
-                <p>${data[i].item.originInfo_dateIssued}</p>
+                <img alt="${data[i].item.abstract}" src="https://arc.lib.montana.edu/msu-photos/objects/${data[i].item.identifier}" />
+                <p>Title: ${data[i].item.titleInfo_title}</p>
+                <p>Abstract: ${data[i].item.abstract}</p>
+                <p>Physical Location: ${data[i].item.location_physicaLocation}</p>
+                <p>Copyright: ${data[i].item.accessCondition}</p>
+                <p>Date Created: ${data[i].item.originInfo_dateCreated}</p>
                 <p>Record ID: ${data[i].item.recordInfo_recordIdentifier}</p>
+                <p>Topics: ${data[i].item.subjectTopic}</p>
+                <a href="https://arc.lib.montana.edu/msu-photos/objects/hres-${data[i].item.identifier}" target="_blank">Higher Resolution</a>
               </li>
               </ul>
               `;
