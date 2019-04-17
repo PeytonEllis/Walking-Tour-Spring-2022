@@ -73,7 +73,7 @@
             if (itemID === queryID) {
               document.querySelector('.item').innerHTML += `
               <h2>Item: ${data[i].item.titleInfo_title}</h2>
-              <ul>
+              <ul class="item">
               <li>
                 <img alt="${data[i].item.abstract}" src="https://arc.lib.montana.edu/msu-photos/objects/${data[i].item.identifier}" />
                 <p>Title: ${data[i].item.titleInfo_title}</p>

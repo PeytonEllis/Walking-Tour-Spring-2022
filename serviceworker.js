@@ -17,7 +17,11 @@ const coreAssets = [
   './offline.html',  
   './app.js', 
   './styles.css', 
-  './items.json', 
+  './items.json',
+  './map.html',
+  'https://unpkg.com/leaflet@1.4.0/dist/leaflet.css',
+  'sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==',
+  'https://unpkg.com/leaflet@1.4.0/dist/leaflet.js',
   //'./scripts/search.js',
   './manifest.json'
 ];
