@@ -1,10 +1,10 @@
 {
-  "name": "James Willard Schultz Collection",
-  "short_name": "SchultzPWA",
+  "name": "MSU Historical Photos Collection - Walking Tour App",
+  "short_name": "MSUWalkingTour",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#213c69",
-  "description": "A digital library template app",
+  "description": "Progressive Web App Template for digital collections using Montana State University (MSU) Historical Photos at MSU Library. The MSU Historical Photos Collection includes photos of campus dating all the way back to 1894.",
   "theme_color": "#213c69",
   "categories": ["books", "education"],
   "icons": [
