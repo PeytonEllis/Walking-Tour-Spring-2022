@@ -10,4 +10,4 @@ Template for digital library progressive web app (PWA) using MSU Historical Phot
 
 ## People
 
-Crafted with :heart: by [Jason A. Clark](http://www.jasonclark.info) sameAs [@jaclark](https://twitter.com/jaclark)
+Crafted with :heart: by [Peyton Ellis](https://github.com/PeytonEllis) and [Jason A. Clark](http://www.jasonclark.info) sameAs [@jaclark](https://twitter.com/jaclark)
