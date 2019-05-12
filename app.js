@@ -75,8 +75,8 @@ class DigLibApp {
   toFeatureBlock(items) {
     return `
         <div class="feature-item">
-          <img src="${items.item.identifier}" alt="${items.item.titleInfo_title}">
-          <div>${items.item.originInfo_dateIssued}</div>
+          <img src="https://arc.lib.montana.edu/msu-photos/objects/thumb-${items.item.identifier}" alt="${items.item.titleInfo_title}">
+          <div>${items.item.originInfo_dateCreated}</div>
         </div>`;
   }
   /*
@@ -95,7 +95,7 @@ class DigLibApp {
     return `
       <div class="timeline-item ${items.item.genre}">
         <div class="title-and-date">
-          <div class="date">${items.item.originInfo_dateIssued}</div>
+          <div class="date">${items.item.originInfo_dateCreated}</div>
           <div class="title-and-creator">
             <div class="title">${items.item.titleInfo_title}</div>
             <div class="creator">${
