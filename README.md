@@ -1,5 +1,5 @@
 # walking-tour-pwa
-Template for digital library progressive web app (PWA) using MSU Historical Photos... It is live at [MSUWalkingTour](https://arc.lib.montana.edu/msu-photos/tour/).
+Template for digital library progressive web app (PWA) using MSU Historical Photos... It is live at [MSUWalkingTour](https://arc.lib.montana.edu/msu-photos/walking-tour/).
 
 ## Technology
 
