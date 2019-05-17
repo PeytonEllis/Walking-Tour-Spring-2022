@@ -69,6 +69,7 @@
             itemID = Number(data[i].item.recordInfo_recordIdentifier);
 
             if (itemID === queryID) {
+              //document.querySelector('meta[name="description"]').setAttribute("content", ${data[i].item.abstract});
               document.querySelector('.item').innerHTML += `
               <h2>Item: ${data[i].item.titleInfo_title}</h2>
               <ul class="item">
