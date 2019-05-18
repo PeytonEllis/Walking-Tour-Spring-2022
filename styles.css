@@ -38,6 +38,17 @@ a:active {
   color: var(--dark-color);
 }
 
+.contact:before {content: "\0040\ ";}
+.embed {font-family: "Courier New", Courier, monospace;}
+.embed:before {content: "\003C";}
+.embed:after {content: "\003E";}
+.expand:before {content: "\271A\ ";color:#666;}
+.download:before {content: "\21E3\ ";}
+.quality:before {content: "\2750\ ";color:#480;}
+.share:before {content: "\271A\ ";color:#fa7;}
+.list-icon:before {content: "\2630\ ";}
+.cloud-icon:before {content: "\2601\ ";}
+
 header,
 main,
 nav,
@@ -88,13 +99,6 @@ nav a,
 nav a:visited,
 nav a:active {
   color: var(--base-color);
-}
-
-@media all and (min-width: 375px) {
-  nav a {
-    font-size: 1.1rem;
-    padding-right: var(--spacing);
-  }
 }
 
 main {
@@ -237,4 +241,7 @@ footer {
 @media all and (max-width:30.063em) {
   header h1 {font-size:1em;}
   input.text {width:13em;}
+}
+@media all and (min-width: 375px) {
+  nav a {font-size:1.1rem;padding-right:var(--spacing);}
 }
