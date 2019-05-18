@@ -60,13 +60,13 @@
           
           if (Number.isNaN(queryID)) {
             document.querySelector('.item').innerHTML += `
-            <h2>Item: Error in finding item!</h2>
+            <h2>Error in finding item!</h2>
             <p>Query type not supported.</p>
             `;
           }
 
           for (i = 0; i < data.length; i++) {
-            itemID = Number(data[i].item.recordInfo_recordIdentifier);
+            let itemID = Number(data[i].item.recordInfo_recordIdentifier);
 
             if (itemID === queryID) {
               //document.querySelector('meta[name="description"]').setAttribute("content", ${data[i].item.abstract});
