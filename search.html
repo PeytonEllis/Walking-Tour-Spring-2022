@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <title>Search - MSU Historical Photos Walking Tour, Montana State University (MSU) Library</title>
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="manifest" href="./manifest.json">
-  <link rel="icon" type="image/png" href="logo.jpg">
-  <meta name="theme-color" content="#213c69" />
-  <meta name="description" content="Search the MSU Historical Photos Walking Tour App - Progressive Web App Template for digital collections using MSU Historical Photos Collection at Montana State University (MSU) Library.">
+  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="manifest" href="./manifest.json"/>
+  <link rel="icon" type="image/png" href="./img/icons/favicon.png"/>
+  <meta name="theme-color" content="#213c69"/>
+  <meta name="description" content="Search the MSU Historical Photos Walking Tour App - Progressive Web App Template for digital collections using MSU Historical Photos Collection at Montana State University (MSU) Library."/>
   <!-- iOS -->
-  <link rel="apple-touch-icon" href="./img/icons/icon-144x144.png" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="mobile-web-app-status-bar-style" content="black" />
-  <meta name="mobile-web-app-title" content="MSUWalkingTour">
+  <link rel="apple-touch-icon" href="./img/icons/icon-144x144.png"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="mobile-web-app-status-bar-style" content="black"/>
+  <meta name="mobile-web-app-title" content="MSUWalkingTour"/>
 </head>
 <body>
   <header>
@@ -69,7 +69,17 @@
           for (i = 0; i < data.length; i++) {
             datalower = (data[i].item.subjectTopic.toLowerCase());
             if (datalower.includes(searchtermlower)) {
-              document.getElementById("search-results").innerHTML += `<li><a href="./item.html?id=${data[i].item.recordInfo_recordIdentifier}"><img alt="${data[i].item.abstract}" src="https://arc.lib.montana.edu/msu-photos/objects/thumb-${data[i].item.identifier}" /></a><p>${data[i].item.titleInfo_title}</p><p>${data[i].item.abstract}</p><p>${data[i].item.subjectTopic}</p><p>${data[i].item.originInfo_dateCreated}</p></li>`;
+              document.getElementById("search-results").innerHTML += `
+              <li>
+                <a href="./item.html?id=${data[i].item.recordInfo_recordIdentifier}">
+		<img alt="${data[i].item.abstract}" src="https://arc.lib.montana.edu/msu-photos/objects/thumb-${data[i].item.identifier}" />
+		</a>
+                <p><a href="./item.html?id=${data[i].item.recordInfo_recordIdentifier}">${data[i].item.titleInfo_title}</a></p>
+                <p>${data[i].item.abstract}</p>
+                <p>${data[i].item.subjectTopic}</p>
+                <p>${data[i].item.originInfo_dateCreated}</p>
+              </li>
+              `;
               j++;
             }
           }
