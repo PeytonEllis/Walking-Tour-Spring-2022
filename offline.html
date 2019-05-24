@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <title>(Offline) MSU Historical Photos Walking Tour - Montana State University (MSU) Library</title>
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="manifest" href="./manifest.json">
-  <link rel="icon" type="image/png" href="./img/icons/favicon.png">
-  <meta name="theme-color" content="#213c69" />
-  <meta name="description" content="Offline - Progressive Web App Template for digital collections using Montana State University Historical Photos at Montana State University (MSU) Library. The MSU Historical Photos Collection includes photos of campus dating all the way back to 1894.">
+  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="manifest" href="./manifest.json"/>
+  <link rel="icon" type="image/png" href="./img/icons/favicon.png"/>
+  <meta name="theme-color" content="#213c69"/>
+  <meta name="description" content="Offline - Progressive Web App Template for digital collections using Montana State University Historical Photos at Montana State University (MSU) Library. The MSU Historical Photos Collection includes photos of campus dating all the way back to 1894."/>
   <!-- iOS -->
-  <link rel="apple-touch-icon" href="./img/icons/icon-144x144.png" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="mobile-web-app-status-bar-style" content="black" />
-  <meta name="mobile-web-app-title" content="MSUWalkingTour">
+  <link rel="apple-touch-icon" href="./img/icons/icon-144x144.png"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="mobile-web-app-status-bar-style" content="black"/>
+  <meta name="mobile-web-app-title" content="MSUWalkingTour"/>
 </head>
 <body>
-  <header>
+  <header role="banner">
     <h1>MSU Historical Photos Walking Tour</h1>
   </header>
-  <nav>
+  <nav role="navigation">
     <a href="./search.html">Search</a>
     <a href="./index.html#browse">Browse</a>
     <a href="./about.html">About</a>
     <a href="./map.html">Map</a>
   </nav>
   <div class="alert" role="alert" hidden>Your browser does not support ServiceWorker. The app will not be available offline.</div>
-  <main class="item">
+  <main class="item" role="main">
   <h2>Whoops! The network is unavailable and this page is offline.</h2>
   <p>If you’re seeing this, you likely got here because your browser supports <a href="http://www.w3.org/TR/service-workers/">Service Workers</a>, a web standard that helps me make things better for you when you don’t have an Internet connection. That means that it’s likely that at least some of this site’s content is available to you, even offline.</p>
   <p><a href="./index.html">Try again from the home page</a> or navigate using the pages we have saved.</p>
@@ -77,7 +77,7 @@
     }
   </script>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>© Copyright Montana State University (MSU) Library</p>
     <p>Created by <a href="https://twitter.com/msulibrary">@msulibrary</a>, the source code is available on <a href="https://github.com/msulibrary">GitHub</a>.</p>
   </footer>
