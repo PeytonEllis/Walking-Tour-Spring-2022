@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <title>Map - MSU Historical Photos Walking Tour</title>
-  <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
-    <style> 
-    html, body{height: 95%;}
-    </style>
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="manifest" href="./manifest.json">
-  <link rel="icon" href="logo.jpg">
-  <meta name="theme-color" content="#213c69" />
-  <meta name="description" content="Map view in Progressive Web App Template for digital collections using James Willard Schultz Photos & Personal Papers Collection at Montana State University (MSU) Library. James Willard Schultz Photos & Personal Papers Collection includes photos & documents of Blackfeet, Blood, Kootenai, Shoshone and Arapaho Native Americans, Glacier and Waterton Lakes National Parks, as well as his professional writing career and personal papers.">
+  <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+  <style> 
+    html,body{height:95%;}
+  </style>
+  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="manifest" href="./manifest.json"/>
+  <link rel="icon" href="logo.jpg"/>
+  <meta name="theme-color" content="#213c69"/>
+  <meta name="description" content="Map view in Progressive Web App Template for digital collections using James Willard Schultz Photos & Personal Papers Collection at Montana State University (MSU) Library. James Willard Schultz Photos & Personal Papers Collection includes photos & documents of Blackfeet, Blood, Kootenai, Shoshone and Arapaho Native Americans, Glacier and Waterton Lakes National Parks, as well as his professional writing career and personal papers."/>
   <!-- iOS -->
-  <link rel="apple-touch-icon" href="./img/icons/icon-144x144.png" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="mobile-web-app-status-bar-style" content="black" />
-  <meta name="mobile-web-app-title" content="MSUWalkingTour">
+  <link rel="apple-touch-icon" href="./img/icons/icon-144x144.png"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="mobile-web-app-status-bar-style" content="black"/>
+  <meta name="mobile-web-app-title" content="MSUWalkingTour"/>
 </head>
 <body>
-  <header>
+  <header role="banner">
     <h1>MSU Historical Photos Walking Tour</h1>
   </header>
-  <nav>
+  <nav role="navigation">
     <a href="./search.html">Search</a>
     <a href="./index.html#browse">Browse</a>
     <a href="./about.html">About</a>
     <a href="./map.html">Map</a>
   </nav>
-<div id="mapid" style="width: 100%; height: 70%;"></div>
+  <main role="main">
+<div id="mapid" style="width:100%;height:70%;"></div>
 <script>
   var mymap = L.map('mapid').setView([45.666534, -111.048761], 15.1);
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
@@ -71,10 +72,8 @@
   L.marker([45.667899, -111.051553]).addTo(mymap)
     .bindPopup('<a href="./item.html?id=457" target="_blank">Taylor Hall - 1894</a> <br> <a href="./item.html?id=245" target="_blank">Taylor Hall - 1900</a> <br> <a href="./item.html?id=242" target="_blank">Taylor Hall - 1906</a> <br> <a href="./item.html?id=173" target="_blank">Taylor Hall - 1920</a> <br> <a href="./item.html?id=244" target="_blank">Taylor Hall - 1937</a>');
 </script>
-</body>
-</html>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>© Copyright Montana State University (MSU) Library</p>
     <p>Created by <a href="https://twitter.com/msulibrary">@msulibrary</a>, the source code is available on <a href="https://github.com/msulibrary">GitHub</a>.</p>
   </footer>
