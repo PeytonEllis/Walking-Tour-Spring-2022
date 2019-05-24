@@ -17,17 +17,17 @@
   <meta name="mobile-web-app-title" content="MSUWalkingTour"/>
 </head>
 <body>
-  <header>
+  <header role="banner">
     <h1>MSU Historical Photos Walking Tour</h1>
   </header>
-  <nav>
+  <nav role="navigation">
     <a href="./search.html">Search</a>
     <a href="./index.html#browse">Browse</a>
     <a href="./about.html">About</a>
     <a href="./map.html">Map</a>
   </nav>
   <div class="alert" role="alert" hidden>Your browser does not support ServiceWorker. The app will not be available offline.</div>
-  <main>
+  <main role="main">
     <h2>Search MSU Historical Photos</h2>
     <form action="./search.html" class="search-form" id="search-form" method="GET" role="search">
       <label class="hidden" for="search-term">Search</label>
@@ -37,7 +37,7 @@
     <p id="search-message" aria-live="polite">Use the <a href="#search-form">search form</a> above to search for items.</p>
     <ol id="search-results"></ol>
   </main>
-  <footer>
+  <footer role="contentinfo">
     <p>© Copyright Montana State University (MSU) Library</p>
     <p>Created by <a href="https://twitter.com/msulibrary">@msulibrary</a>, the source code is available on <a href="https://github.com/msulibrary">GitHub</a>.</p>
   </footer>
