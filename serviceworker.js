@@ -19,8 +19,8 @@ const coreAssets = [
   './app.js', 
   './styles.css', 
   './items.json',
-  'https://unpkg.com/leaflet@1.4.0/dist/leaflet.css',
-  'https://unpkg.com/leaflet@1.4.0/dist/leaflet.js',
+  'https://unpkg.com/leaflet@1.5.1/dist/leaflet.css',
+  'https://unpkg.com/leaflet@1.5.1/dist/leaflet.js',
   './manifest.json'
 ];
 
