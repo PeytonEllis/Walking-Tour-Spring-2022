@@ -6,6 +6,7 @@
   "background_color": "#213c69",
   "description": "Progressive Web App Template for digital collections using Montana State University (MSU) Historical Photos at MSU Library. The MSU Historical Photos Collection includes photos of campus dating all the way back to 1894.",
   "theme_color": "#213c69",
+  "prefer_related_applications": false,
   "categories": ["books", "education"],
   "icons": [
     {
