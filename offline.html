@@ -49,7 +49,7 @@
             caches.open(cacheName).then(function (cache) {
               return cache.keys().then(function (requests) {
                 var urls = requests.filter(function (request) {
-                  return request.url.indexOf("/~jason/files/digital-library-pwa/") !== -1;
+                  return request.url.indexOf("/msu-photos/walking-tour/") !== -1;
                 }).map(function (request) {
                   return request.url;
                 });
