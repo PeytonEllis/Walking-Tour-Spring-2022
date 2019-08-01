@@ -11,11 +11,16 @@ class DigLibApp {
       this.setupNavIntersectionObserver();
     }
     this.addLoadingIndicatorDelay();
+    
+    //check for filename; run featured and timeline functions based on HTML page
+    let url = new URL(window.location);
+    let fileName = url.pathname.substring(url.pathname.lastIndexOf('/')+1);
 
-    await this.loadFeatured();
+    if (fileName === 'index.html' || !fileName || fileName.trim === '') {
+      await this.loadFeatured();
+      await this.loadTimeline();
+    }
     //await this.loadItem();
-    await this.loadTimeline();
-
   }
 
   addLoadingIndicatorDelay() {
