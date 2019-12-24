@@ -1,7 +1,7 @@
 {
   "name": "MSU Historical Photos Collection - Walking Tour App",
   "short_name": "MSUWalkingTour",
-  "start_url": ".",
+  "start_url": "./?utm_source=homescreen",
   "display": "standalone",
   "background_color": "#213c69",
   "description": "Progressive Web App Template for digital collections using Montana State University (MSU) Historical Photos at MSU Library. The MSU Historical Photos Collection includes photos of campus dating all the way back to 1894.",
