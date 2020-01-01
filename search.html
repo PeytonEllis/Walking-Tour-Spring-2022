@@ -58,8 +58,7 @@
   // use fetch to retrieve json file and report any errors that occur
   fetch('./items.json').then(response => {
     if (response.ok) {
-      response.json().then(json => {
-        data = json;
+      response.json().then(data => {
         document.getElementById("search-form").onsubmit = () => {
           document.getElementById("search-message").innerHTML = "";
           document.getElementById("search-results").innerHTML = "";
