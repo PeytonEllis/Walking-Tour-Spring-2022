@@ -65,6 +65,7 @@
           searchterm = document.getElementById("search-term").value || getQueryVariable('q');
           searchtermlower = searchterm.toLowerCase();
           j = 0;
+          history.pushState(null, null, '?q='+searchterm);
           for (i = 0; i < data.length; i++) {
             datalower = (data[i].item.subjectTopic.toLowerCase());
             if (datalower.includes(searchtermlower)) {
