@@ -80,8 +80,10 @@ class DigLibApp {
   toFeatureBlock(items) {
     return `
         <div class="feature-item">
+          <a href="./item.html?id=${items.item.recordInfo_recordIdentifier}">
           <img src="https://arc.lib.montana.edu/msu-photos/objects/thumb-${items.item.identifier}" loading="lazy" alt="${items.item.titleInfo_title}"/>
           <div>${items.item.originInfo_dateCreated}</div>
+          </a>
         </div>`;
   }
   /*
