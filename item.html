@@ -77,29 +77,59 @@
             let itemID = Number(data[i].item.recordInfo_recordIdentifier);
 
             if (itemID === queryID) {
+              const itemID = Number(data[i].item.recordInfo_recordIdentifier);
+              const itemTitle = `${data[i].item.titleInfo_title}`;
+              const itemDescription = `${data[i].item.abstract}`;
+              const itemKeywords = `${data[i].item.subjectTopic}`;
+              const itemLocation = `${data[i].item.location_physicaLocation}`;
+              const itemImgURL = `${data[i].item.identifier}`;
+              const itemPageURL = `${location.protocol}//${location.host}${location.pathname}?${location.search.substring(1)}`;
+              const itemDatePublished = `${data[i].item.originInfo_dateCreated}`;
+              const itemLicense = `${data[i].item.accessCondition}`;
+              //get filename from identifier -> unique given this data in items.json
+              let urlPath = data[i].item.identifier;
+              let itemFilename = urlPath.substring(urlPath.lastIndexOf('/')+1).split('-').pop();
+
               //set <title> tag using unique item title from items.json file
-              let pageTitle = data[i].item.titleInfo_title + ' | MSU Historical Photos Walking Tour, Montana State University (MSU) Library';
+              let pageTitle = `${itemTitle} | MSU Historical Photos Walking Tour, Montana State University (MSU) Library`;
               //document.querySelector('title').textContent = pageTitle;
               document.title = pageTitle;
 
               //set <meta> description tag using unique item description from items.json file
-              let metaDescription = data[i].item.abstract + ' | MSU Historical Photos Walking Tour, Montana State University (MSU) Library';
+              let metaDescription = `${itemDescription} | MSU Historical Photos Walking Tour, Montana State University (MSU) Library`;
               document.querySelector('meta[name="description"]').setAttribute("content", metaDescription);
 
+              //set schema.org json-ld <script>
+              const  jsonld = document.createElement('script');
+              jsonld.type = 'application/ld+json';
+              jsonld.text = JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "CreativeWork",
+                "name": `${itemTitle}`,
+		"creator": {"@type": "Organization", "name": "Montana State University (MSU) Library"},
+                "url": `${itemPageURL}`,
+                "thumbnailUrl": `https://arc.lib.montana.edu/msu-photos/objects/${itemImgURL}`,
+                "datePublished": `${itemDatePublished}`,
+                "description": `${itemDescription}`,
+                "spatial": `${itemLocation}`,
+                "license": `${itemLicense}`
+              });
+              document.querySelector('head').appendChild(jsonld);
+
               document.querySelector('.item').innerHTML += `
-              <h2>${data[i].item.titleInfo_title}</h2>
+              <h2>${itemTitle}</h2>
               <ul class="item">
-              <li>
-                <img alt="${data[i].item.abstract}" src="https://arc.lib.montana.edu/msu-photos/objects/${data[i].item.identifier}" />
-                <p>Title: ${data[i].item.titleInfo_title}</p>
-                <p>Abstract: ${data[i].item.abstract}</p>
-                <p>Physical Location: ${data[i].item.location_physicaLocation}</p>
-                <p>Date Created: ${data[i].item.originInfo_dateCreated}</p>
-                <p>Record ID: ${data[i].item.recordInfo_recordIdentifier}</p>
-                <p>Topics: ${data[i].item.subjectTopic}</p>
-                <p>License: ${data[i].item.accessCondition}</p>
-                <a class="quality" href="https://arc.lib.montana.edu/msu-photos/objects/hres-${data[i].item.identifier}">Higher Resolution</a>
-              </li>
+                <li>
+		  <img alt="${itemDescription}" src="https://arc.lib.montana.edu/msu-photos/objects/${itemImgURL}" />
+                  <p>Title: ${itemTitle}</p>
+                  <p>Abstract: ${itemDescription}</p>
+                  <p>Physical Location: ${itemLocation}</p>
+                  <p>Date Created: ${itemDatePublished}</p>
+                  <p>Record ID: ${itemID}</p>
+                  <p>Topics: ${itemKeywords}</p>
+                  <p>License: ${itemLicense}</p>
+                  <a class="quality" href="https://arc.lib.montana.edu/msu-photos/objects/hres-${itemFilename}">Higher Resolution</a>
+                </li>
               </ul>
               `;
             }
