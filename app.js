@@ -51,10 +51,9 @@ class DigLibApp {
     this.featured = await this.fetchJSON('./items.json');
     //check for filename; run unique featured functions based on HTML page
     if (fileName === 'index.html' || !fileName || fileName.trim === '') {
-      this.featuredDiv.innerHTML = this.featured.sort(() => Math.random() - 0.5).slice(0,4).sort((a, b) => parseFloat(a.item.originInfo_dateIssued) - parseFloat(b.item.originInfo_dateIssued)).map(this.toFeatureBlock).join('\n');
+      this.featuredDiv.innerHTML = this.featured.sort(() => Math.random() - 0.5).slice(0,4).sort((a, b) => parseFloat(a.item.originInfo_dateCreated) - parseFloat(b.item.originInfo_dateCreated)).map(this.toFeatureBlock).join('\n');
     } else {
-      //this.featuredDiv.innerHTML = this.featured.map(this.toFeatureBlock).join('\n');
-      this.featuredDiv.innerHTML = this.featured.sort((a, b) => parseFloat(a.item.originInfo_dateIssued) - parseFloat(b.item.originInfo_dateIssued)).map(this.toFeatureBlock).join('\n');
+      this.featuredDiv.innerHTML = this.featured.sort((a, b) => parseFloat(a.item.originInfo_dateCreated) - parseFloat(b.item.originInfo_dateCreated)).map(this.toFeatureBlock).join('\n');
     }
   }
 
@@ -63,7 +62,7 @@ class DigLibApp {
     this.timeline = rawTimeline.map(this.addObjectDetails, this);
     //check for filename; run unique timeline functions based on HTML page
     if (fileName === 'index.html' || !fileName || fileName.trim === '') {
-      this.timelineDiv.innerHTML = this.timeline.sort(() => Math.random() - 0.5).slice(0,4).sort((a, b) => parseFloat(a.item.originInfo_dateIssued) - parseFloat(b.item.originInfo_dateIssued)).map(this.toTimelineBlock).join('\n');
+      this.timelineDiv.innerHTML = this.timeline.sort(() => Math.random() - 0.5).slice(0,4).sort((a, b) => parseFloat(a.item.originInfo_dateCreated) - parseFloat(b.item.originInfo_dateCreated)).map(this.toTimelineBlock).join('\n');
     } else {
       this.timelineDiv.innerHTML = this.timeline.sort((a, b) => parseFloat(a.item.originInfo_dateCreated) - parseFloat(b.item.originInfo_dateCreated)).map(this.toTimelineBlock).join('\n');
     }
