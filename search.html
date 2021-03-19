@@ -33,6 +33,7 @@
     <form action="./search.html" class="search-form" id="search-form" method="GET" role="search">
       <label class="hidden" for="search-term">Search</label>
       <input class="text" type="search" id="search-term" name="q" maxlength="75" autofocus placeholder="Keywords, title..."/>
+      <!--<input type="hidden" name="sites" id="sites" value="your-domain.com"/>-->
       <input class="submit" type="submit" value="Search" />                
     </form>
     <p id="search-message" aria-live="polite">Use the <a href="#search-form">search form</a> above to search for items.</p>
@@ -44,32 +45,49 @@
   </footer>
   <script src="./app.js"></script>
   <script>
-  function getQueryVariable(variable) {
-    const query = window.location.search.substring(1);
-    const vars = query.split('&');
+    //testing ability to load/override HTML values in certain tags; see hidden <input id="sites>
+    //Note: siteUrl is global variable in app.js
+    //document.getElementById('sites').value = siteUrl;
 
-    for (let i = 0; i < vars.length; i++) {
-      const pair = vars[i].split('=');
+    //Variables
+    const form = document.querySelector("#search-form");
+    const input = document.querySelector("#q");
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryValue = urlParams.get("q");
+    console.log(queryValue);
+    const q = queryValue || input.value;
+    const datastore = "items.json";
+    const message = document.querySelector("#search-message");
+    const results = document.querySelector("#search-results");
 
-      if (pair[0] === variable) {
-        return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+    //Methods
+    //retrieve data file and report any errors that occur
+    async function fetchData(endpoint) {
+      const response = await fetch(endpoint);
+      if (!response.ok) {
+        throw new Error(response.status); // 404
       }
+      const data = await response.json();
+      return data;
     }
-  }
-  // use fetch to retrieve json file and report any errors that occur
-  fetch('./items.json').then(response => {
-    if (response.ok) {
-      response.json().then(data => {
-        document.getElementById("search-form").onsubmit = () => {
-          document.getElementById("search-message").innerHTML = "";
-          document.getElementById("search-results").innerHTML = "";
-          searchterm = document.getElementById("search-term").value || getQueryVariable('q');
-          searchtermlower = searchterm.toLowerCase();
-          j = 0;
-          history.pushState(null, null, '?q='+searchterm);
-          for (i = 0; i < data.length; i++) {
-            datalower = (data[i].item.subjectTopic.toLowerCase());
-            if (datalower.includes(searchtermlower)) {
+    //search data file and print HTML results
+    const search = function(query) {
+      let searchIndex = fetchData(datastore);
+
+      searchIndex
+        .then((data) => {
+          message.innerHTML = "";
+          results.innerHTML = "";
+          console.log(queryValue);
+          let searchTerm = queryValue || input.value;
+          let searchTermLower = searchTerm.toLowerCase();
+          let j = 0;
+          history.pushState(null, null, "?q=" + searchTerm);
+
+          for (let i = 0; i < data.length; i++) {
+            let dataLower = data[i].item.titleInfo_title.toLowerCase();
+
+            if (dataLower.includes(searchTermLower)) {
               document.getElementById("search-results").innerHTML += `
               <li>
                 <a href="./item.html?id=${data[i].item.recordInfo_recordIdentifier}">
@@ -84,14 +102,24 @@
               j++;
             }
           }
-          document.getElementById("search-message").innerHTML += `Your search for <em>${searchterm}</em> has ${j} result(s)`;
+
+          message.innerHTML += `Your search for <em>${searchTerm}</em> has ${j} result(s)`;
           return false;
+        })
+        .catch((error) => console.log("Ooops, error", error.message));
+    };
+
+    //Events
+    //submit form and run search function
+    form.onsubmit = () => {
+        if (q !== null) {
+          search(q);
         }
-      });
-    } else {
-      console.log(`Request for items.json failed with response ${response.status}: ${response.statusText}`);
+      }
+      //run search function if URL has q value
+    if (queryValue !== null) {
+      search(q);
     }
-  });
   </script>
 </body>
 </html>
